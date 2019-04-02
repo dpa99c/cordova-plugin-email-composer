@@ -80,7 +80,7 @@ class Impl {
             return draft.setPackage(app);
         }
 
-        List<Intent> targets = new ArrayList<>();
+        List<Intent> targets = new ArrayList<Intent>();
 
         for (String clientId : getEmailClientIds()) {
             Intent target = (Intent) draft.clone();
@@ -259,7 +259,7 @@ class Impl {
         Intent           intent = getEmailIntent();
         PackageManager       pm = ctx.getPackageManager();
         List<ResolveInfo>  apps = pm.queryIntentActivities(intent, 0);
-        List<ActivityInfo> list = new ArrayList<>();
+        List<ActivityInfo> list = new ArrayList<ActivityInfo>();
 
         for (ResolveInfo app : apps) {
             if (app.activityInfo.isEnabled()) {
@@ -274,7 +274,7 @@ class Impl {
      * Get package IDs for all available email clients.
      */
     List<String> getEmailClientIds() {
-        List<String> ids = new ArrayList<>();
+        List<String> ids = new ArrayList<String>();
 
         for (ActivityInfo app : getEmailClients()) {
             ids.add(app.packageName);
